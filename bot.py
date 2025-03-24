@@ -19,6 +19,7 @@ async def start(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
 async def handle_message(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
     user_question = update.message.text
     chat_id = update.message.chat_id
+    await context.bot.send_message(chat_id=chat_id, text="Отвечу вам в ближайшее время!")
 
     try:
         response = requests.post(SERVER_URL, json={"text": user_question})
